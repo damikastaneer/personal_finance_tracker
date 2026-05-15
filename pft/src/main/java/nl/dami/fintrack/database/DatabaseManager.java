@@ -16,6 +16,8 @@ public class DatabaseManager {
         String createUsersTable = """
                 CREATE TABLE IF NOT EXISTS users (
                 id TEXT PRIMARY KEY,
+                f_name TEXT NOT NULL,
+                l_name TEXT NOT NULL,
                 username TEXT NOT NULL UNIQUE,
                 email TEXT NOT NULL UNIQUE,
                 password_hash TEXT NOT NULL,

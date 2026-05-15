@@ -10,7 +10,15 @@ public class AuthService {
 
     private final UserRepository userRepository = new UserRepository();
 
-    public boolean register(String username, String email, String password, String confirmPassword) {
+    public boolean register(String f_name, String l_name, String username, String email, String password, String confirmPassword) {
+        if (f_name == null || f_name.isBlank()) {
+            return false;
+        }
+
+        if (l_name == null || l_name.isBlank()) {
+            return false;
+        }
+
         if (username == null || username.isBlank()) {
             return false;
         }
@@ -30,8 +38,28 @@ public class AuthService {
         String id = UUID.randomUUID().toString();
         String passwordHash = PasswordUtil.hashPassword(password);
 
-        User user = new User(id, username, email, passwordHash);
+        User user = new User(id, f_name, l_name, username, email, passwordHash);
 
         return userRepository.save(user);
+    }
+
+    public boolean login(String email, String password){
+        if (email == null || email.isBlank()){
+            return false;
+        }
+
+        if(password == null || password.isBlank()){
+            return false;
+        }
+
+        User user = userRepository.findByEmail(email);
+
+        if (user == null){
+            return false;
+        }
+
+        String passwordHash = PasswordUtil.hashPassword(password);
+
+        return passwordHash.equals(user.getPasswordHash());
     }
 }
