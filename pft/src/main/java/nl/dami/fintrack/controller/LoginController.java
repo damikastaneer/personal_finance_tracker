@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import nl.dami.fintrack.service.AuthService;
+import nl.dami.fintrack.util.SceneManager;
 
 public class LoginController {
     @FXML
@@ -29,5 +30,10 @@ public class LoginController {
         } else{
             messageLabel.setText("Login failed.");
         }
+    }
+
+    @FXML
+    public void goToRegister(){
+        SceneManager.switchTo("/fxml/register-view.fxml");
     }
 }

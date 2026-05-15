@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import nl.dami.fintrack.database.DatabaseManager;
+import nl.dami.fintrack.util.SceneManager;
 
 
 public class MainApplication extends Application{
@@ -20,6 +21,7 @@ public class MainApplication extends Application{
 
         stage.setTitle("FinTrack");
         stage.setScene(scene);
+        SceneManager.setStage(stage);
         stage.setResizable(false);
         stage.show();
     }
