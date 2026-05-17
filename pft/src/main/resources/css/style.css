@@ -1,0 +1,54 @@
+.primary-button {
+    -fx-background-color: linear-gradient(to right, #3b82f6, #2563eb);
+
+    -fx-text-fill: white;
+
+    -fx-background-radius: 14;
+
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+
+    -fx-padding: 12 24 12 24;
+
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #2563eb;
+}
+
+.primary-button:pressed {
+    -fx-background-color: #1d4ed8;
+}
+
+.secondary-button {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: white;
+
+    -fx-background-radius: 12;
+
+    -fx-border-color: #334155;
+    -fx-border-radius: 12;
+
+    -fx-cursor: hand;
+}
+
+.signout-button {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: red;
+
+    -fx-background-radius: 12;
+
+    -fx-border-color: #334155;
+    -fx-border-radius: 12;
+
+    -fx-cursor: hand;
+}
+
+.card {
+    -fx-background-color: #1e293b;
+
+    -fx-padding: 20;
+
+    -fx-spacing: 15;
+}
