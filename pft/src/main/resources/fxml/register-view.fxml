@@ -5,53 +5,149 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.dami.fintrack.controller.RegisterController">
+<AnchorPane prefHeight="620.0"
+            prefWidth="500.0"
+            styleClass="auth-root"
+            stylesheets="@../css/style.css"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="nl.dami.fintrack.controller.RegisterController">
+
    <children>
-      <Label layoutX="629.0" layoutY="14.0" prefHeight="49.0" prefWidth="79.0" text="Register" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="firstNameField" layoutX="562.0" layoutY="110.0" prefHeight="39.0" prefWidth="212.0" promptText="First Name" />
-      <TextField fx:id="lastNameField" layoutX="562.0" layoutY="180.0" prefHeight="39.0" prefWidth="212.0" promptText="Last Name" />
-      <TextField fx:id="usernameField" layoutX="562.0" layoutY="250.0" prefHeight="39.0" prefWidth="212.0" promptText="Username" />
-      <TextField fx:id="emailField" layoutX="562.0" layoutY="320.0" prefHeight="39.0" prefWidth="212.0" promptText="Email" />
-      <PasswordField fx:id="passwordField" layoutX="562.0" layoutY="390.0" prefHeight="39.0" prefWidth="212.0" promptText="Password" />
-      <PasswordField fx:id="confirmPasswordField" layoutX="562.0" layoutY="460.0" prefHeight="39.0" prefWidth="212.0" promptText="Confirm Password" />
-      <Label layoutX="562.0" layoutY="90.0" text="First Name">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="562.0" layoutY="160.0" text="Last Name">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="562.0" layoutY="230.0" text="Username">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="562.0" layoutY="300.0" text="Email">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="562.0" layoutY="370.0" text="Password">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="562.0" layoutY="440.0" text="Confirm Password">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Button layoutX="562.0" layoutY="570.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="212.0" text="Register" onAction="#handleRegister"/>
-      <AnchorPane layoutX="-2.0" layoutY="-3.0" prefHeight="627.0" prefWidth="450.0" style="-fx-background-color: #000;" />
-      <Label fx:id="messageLabel" layoutX="567.0" layoutY="524.0" prefHeight="55.0" prefWidth="212.0" />
+
+      <VBox alignment="CENTER"
+            layoutX="75.0"
+            layoutY="25.0"
+            prefWidth="350.0"
+            spacing="14"
+            styleClass="auth-card">
+
+         <children>
+
+            <Label text="FinTrack"
+                   styleClass="auth-title" />
+
+            <Label text="Create your account"
+                   styleClass="subtitle-label" />
+
+            <VBox spacing="6">
+
+               <children>
+
+                  <Label text="First Name"
+                         styleClass="field-label" />
+
+                  <TextField fx:id="firstNameField"
+                             prefHeight="42.0"
+                             promptText="Enter your first name"
+                             styleClass="input-field" />
+
+               </children>
+
+            </VBox>
+
+            <VBox spacing="6">
+
+               <children>
+
+                  <Label text="Last Name"
+                         styleClass="field-label" />
+
+                  <TextField fx:id="lastNameField"
+                             prefHeight="42.0"
+                             promptText="Enter your last name"
+                             styleClass="input-field" />
+
+               </children>
+
+            </VBox>
+
+            <VBox spacing="6">
+
+               <children>
+
+                  <Label text="Username"
+                         styleClass="field-label" />
+
+                  <TextField fx:id="usernameField"
+                             prefHeight="42.0"
+                             promptText="Choose a username"
+                             styleClass="input-field" />
+
+               </children>
+
+            </VBox>
+
+            <VBox spacing="6">
+
+               <children>
+
+                  <Label text="Email"
+                         styleClass="field-label" />
+
+                  <TextField fx:id="emailField"
+                             prefHeight="42.0"
+                             promptText="Enter your email"
+                             styleClass="input-field" />
+
+               </children>
+
+            </VBox>
+
+            <VBox spacing="6">
+
+               <children>
+
+                  <Label text="Password"
+                         styleClass="field-label" />
+
+                  <PasswordField fx:id="passwordField"
+                                 prefHeight="42.0"
+                                 promptText="Create a password"
+                                 styleClass="input-field" />
+
+               </children>
+
+            </VBox>
+
+            <VBox spacing="6">
+
+               <children>
+
+                  <Label text="Confirm Password"
+                         styleClass="field-label" />
+
+                  <PasswordField fx:id="confirmPasswordField"
+                                 prefHeight="42.0"
+                                 promptText="Confirm your password"
+                                 styleClass="input-field" />
+
+               </children>
+
+            </VBox>
+
+            <Label fx:id="messageLabel"
+                   prefHeight="20.0"
+                   styleClass="message-label" />
+
+            <Button text="Create account"
+                    onAction="#handleRegister"
+                    prefHeight="42.0"
+                    prefWidth="220.0"
+                    styleClass="primary-button" />
+
+            <Button text="Back to login"
+                    onAction="#goToLogin"
+                    prefHeight="42.0"
+                    prefWidth="220.0"
+                    styleClass="secondary-button" />
+
+         </children>
+
+      </VBox>
+
    </children>
+
 </AnchorPane>

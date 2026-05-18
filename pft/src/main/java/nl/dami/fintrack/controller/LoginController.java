@@ -27,6 +27,7 @@ public class LoginController {
 
         if (succes){
             messageLabel.setText("Logged in successfully.");
+            SceneManager.switchTo("/fxml/main-view.fxml");
         } else{
             messageLabel.setText("Login failed.");
         }
