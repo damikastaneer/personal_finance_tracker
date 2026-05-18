@@ -24,9 +24,23 @@ public class DatabaseManager {
                 created_at TEXT DEFAULT CURRENT_TIMESTAMP
                 );""";
 
+        String createTransactionsTable = """
+                CREATE TABLE IF NOT EXISTS transactions (
+                id TEXT PRIMARY KEY,
+                user_id TEXT NOT NULL,
+                amount REAL NOT NULL,
+                type TEXT NOT NULL,
+                category TEXT NOT NULL,
+                description TEXT,
+                date TEXT NOT NULL,
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (user_id) REFERENCES users(id)
+                );""";
+
         try (Connection connection = getConnection();
              Statement statement = connection.createStatement()) {
             statement.execute(createUsersTable);
+            statement.execute(createTransactionsTable);
             System.out.println("Database initialized.");
         } catch (SQLException e) {
             e.printStackTrace();

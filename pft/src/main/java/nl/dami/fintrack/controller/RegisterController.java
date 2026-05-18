@@ -43,6 +43,7 @@ public class RegisterController {
 
         if (succes){
             messageLabel.setText("Account created successfully.");
+            goToLogin();
         } else {
             messageLabel.setText("Registration failed. Check your input.");
         }

@@ -9,7 +9,7 @@ import nl.dami.fintrack.util.SceneManager;
 
 public class LoginController {
     @FXML
-    private TextField emailField;
+    private TextField identifierField;
     @FXML
     private PasswordField passwordField;
     @FXML
@@ -21,7 +21,7 @@ public class LoginController {
     public void handleLogin(){
 
         boolean succes = authService.login(
-            emailField.getText(),
+            identifierField.getText(),
             passwordField.getText()
         );
 

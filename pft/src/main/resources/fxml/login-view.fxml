@@ -28,9 +28,9 @@
                    styleClass="auth-title" />
             <VBox spacing="6">
                <children>
-                  <Label text="Email"
+                  <Label text="Email or Username"
                          styleClass="field-label" />
-                  <TextField fx:id="emailField"
+                  <TextField fx:id="identifierField"
                              prefHeight="42.0"
                              promptText="Email"
                              styleClass="input-field" />

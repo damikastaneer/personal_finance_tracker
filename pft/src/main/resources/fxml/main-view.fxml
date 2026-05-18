@@ -11,7 +11,7 @@
    <left>
       <VBox prefWidth="220" styleClass="sidebar">
          <Label styleClass="app-title" text="FinTrack" />
-         <Button styleClass="sidebar-button" text="Dashboard" />
+         <Button styleClass="sidebar-button" text="Overview" />
          <Button styleClass="sidebar-button" text="Transactions" />
          <Button styleClass="sidebar-button" text="Budgets" />
          <Button styleClass="sidebar-button" text="Reports" />
