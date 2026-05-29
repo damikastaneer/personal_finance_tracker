@@ -40,7 +40,7 @@
             </VBox>
          </HBox>
 
-         <Button styleClass="primary-button" text="Add Transaction" />
+         <Button styleClass="primary-button" text="Add Transaction" onAction="#goToAddTransaction" />
       </VBox>
    </center>
 

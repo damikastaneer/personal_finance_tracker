@@ -84,4 +84,30 @@ public class UserRepository {
         }
         return null;
     }
+
+    public User findByEmailOrUsername(String identifier){
+        String sql = "SELECT * FROM users WHERE email=? OR username=?";
+
+        try (Connection connection = DatabaseManager.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, identifier);
+            statement.setString(2, identifier);
+
+            var resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                return new User(
+                        resultSet.getString("id"),
+                        resultSet.getString("f_name"),
+                        resultSet.getString("l_name"),
+                        resultSet.getString("username"),
+                        resultSet.getString("email"),
+                        resultSet.getString("password_hash")
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println("Could not find user: " + e.getMessage());
+        }
+        return null;
+    }
 }

@@ -43,28 +43,18 @@ public class AuthService {
         return userRepository.save(user);
     }
 
-    public boolean login(String identifier, String password){
-        if (identifier == null || identifier.isBlank()){
-            return false;
-        }
-        if(password == null || password.isBlank()){
-            return false;
-        }
-
-        User user;
-
-        if (identifier.contains("@")){
-            user = userRepository.findByEmail(identifier);
-        } else{
-            user = userRepository.findByUsername(identifier);
-        }
+    public User login(String identifier, String password){
+        User user = userRepository.findByEmailOrUsername(identifier);
 
         if (user == null){
-            return false;
+            return null;
         }
 
         String passwordHash = PasswordUtil.hashPassword(password);
 
-        return passwordHash.equals(user.getPasswordHash());
+        if (!passwordHash.equals(user.getPasswordHash())) {
+            return null;
+        }
+        return user;
     }
 }
