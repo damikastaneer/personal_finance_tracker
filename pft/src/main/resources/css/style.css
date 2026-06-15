@@ -140,3 +140,76 @@
 
     -fx-spacing: 16;
 }
+
+.table-view {
+    -fx-background-color: #1e293b;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: #334155;
+
+    -fx-padding: 8;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #111827;
+    -fx-background-radius: 16 16 0 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.table-row-cell {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: white;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #233044;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #334155;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #3b82f6;
+}
+
+.table-cell {
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+    -fx-padding: 10;
+}
+
+.table-view .filler {
+    -fx-background-color: #111827;
+}
+
+.table-view .scroll-bar:vertical,
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: #111827;
+}
+
+.table-view .scroll-bar .thumb {
+    -fx-background-color: #475569;
+    -fx-background-radius: 8;
+}
+
+.income-label {
+    -fx-text-fill: #22c55e;
+    -fx-font-weight: bold;
+}
+
+.expense-label {
+    -fx-text-fill: #ef4444;
+    -fx-font-weight: bold;
+}
+
+

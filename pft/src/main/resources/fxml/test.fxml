@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="650.0"
+            prefWidth="1000.0"
+            styleClass="dashboard-root"
+            stylesheets="@../css/test.css"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1">
+
+    <left>
+        <VBox prefWidth="230.0"
+              spacing="18"
+              styleClass="dashboard-sidebar">
+
+            <padding>
+                <Insets top="28" right="20" bottom="28" left="20"/>
+            </padding>
+
+            <Label text="FinTrack" styleClass="app-title"/>
+
+            <VBox spacing="8">
+                <Button text="Overview" prefWidth="190" styleClass="sidebar-button-active"/>
+                <Button text="Transactions" prefWidth="190" styleClass="sidebar-button"/>
+                <Button text="Budgets" prefWidth="190" styleClass="sidebar-button"/>
+                <Button text="Reports" prefWidth="190" styleClass="sidebar-button"/>
+                <Button text="Settings" prefWidth="190" styleClass="sidebar-button"/>
+            </VBox>
+
+            <Pane VBox.vgrow="ALWAYS"/>
+
+            <Button text="Logout" prefWidth="190" styleClass="sidebar-button"/>
+        </VBox>
+    </left>
+
+    <center>
+        <HBox spacing="20"
+              styleClass="dashboard-content">
+
+            <padding>
+                <Insets top="28" right="28" bottom="28" left="28"/>
+            </padding>
+
+            <VBox spacing="20"
+                  prefWidth="560.0">
+
+                <VBox spacing="4">
+                    <Label text="Welcome back, Dami"
+                           styleClass="welcome-title"/>
+
+                    <Label text="Here's your financial overview for today."
+                           styleClass="welcome-subtitle"/>
+                </VBox>
+
+                <VBox prefHeight="250.0"
+                      spacing="14"
+                      styleClass="card">
+
+                    <Label text="Account Balance"
+                           styleClass="card-title"/>
+
+                    <Label text="€0.00"
+                           styleClass="hero-balance"/>
+
+                    <Label text="Track your income, expenses and savings from one place."
+                           styleClass="muted-label"/>
+                </VBox>
+
+                <VBox prefHeight="260.0"
+                      spacing="12"
+                      styleClass="card">
+
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Recent Transactions"
+                               styleClass="card-title"/>
+
+                        <Pane HBox.hgrow="ALWAYS"/>
+
+                        <Button text="View all"
+                                styleClass="small-secondary-button"/>
+                    </HBox>
+
+                    <TableView fx:id="transactionTable"
+                               prefHeight="210.0"
+                               styleClass="dashboard-table">
+                        <columns>
+                            <TableColumn fx:id="dateColumn" text="Date" prefWidth="115"/>
+                            <TableColumn fx:id="typeColumn" text="Type" prefWidth="95"/>
+                            <TableColumn fx:id="categoryColumn" text="Category" prefWidth="125"/>
+                            <TableColumn fx:id="amountColumn" text="Amount" prefWidth="110"/>
+                            <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="115"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+
+            <VBox spacing="20"
+                  prefWidth="240.0">
+
+                <VBox prefHeight="125.0"
+                      spacing="8"
+                      styleClass="summary-card">
+                    <Label text="Total Balance" styleClass="card-title"/>
+                    <Label text="€0.00" styleClass="summary-value"/>
+                    <Label text="All accounts" styleClass="muted-label"/>
+                </VBox>
+
+                <VBox prefHeight="125.0"
+                      spacing="8"
+                      styleClass="summary-card">
+                    <Label text="Income" styleClass="card-title"/>
+                    <Label text="€0.00" styleClass="summary-value"/>
+                    <Label text="This month" styleClass="positive-label"/>
+                </VBox>
+
+                <VBox prefHeight="125.0"
+                      spacing="8"
+                      styleClass="summary-card">
+                    <Label text="Expenses" styleClass="card-title"/>
+                    <Label text="€0.00" styleClass="summary-value"/>
+                    <Label text="This month" styleClass="negative-label"/>
+                </VBox>
+
+                <VBox prefHeight="150.0"
+                      spacing="12"
+                      styleClass="summary-card">
+                    <Label text="Quick Action" styleClass="card-title"/>
+
+                    <Button text="Add Transaction"
+                            prefWidth="200"
+                            styleClass="primary-button"/>
+                </VBox>
+            </VBox>
+
+        </HBox>
+    </center>
+
+</BorderPane>
