@@ -7,59 +7,79 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="441.0"
-            prefWidth="500.0"
-            styleClass="auth-root"
-            stylesheets="@../css/style.css"
-            xmlns="http://javafx.com/javafx/26"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="nl.dami.fintrack.controller.LoginController">
 
-   <children>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
+<VBox stylesheets="@../css/style.css"
+      xmlns="http://javafx.com/javafx/26"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="nl.dami.fintrack.controller.LoginController">
 
-      <VBox alignment="CENTER"
-            layoutX="75.0"
-            layoutY="45.0"
-            prefWidth="350.0"
-            spacing="16"
-            styleClass="auth-card">
-         <children>
-            <Label text="FinTrack"
-                   styleClass="auth-title" />
-            <VBox spacing="6">
-               <children>
-                  <Label text="Email or Username"
-                         styleClass="field-label" />
-                  <TextField fx:id="identifierField"
-                             prefHeight="42.0"
-                             promptText="Email"
-                             styleClass="input-field" />
-               </children>
-            </VBox>
-            <VBox spacing="6">
-               <children>
-                  <Label text="Password"
-                         styleClass="field-label" />
-                  <PasswordField fx:id="passwordField"
-                                 prefHeight="42.0"
-                                 promptText="Password"
-                                 styleClass="input-field" />
-               </children>
-            </VBox>
-            <Label fx:id="messageLabel"
-                   prefHeight="20.0"
-                   styleClass="message-label" />
-            <Button text="Login"
-                    onAction="#handleLogin"
-                    prefHeight="42.0"
-                    prefWidth="220.0"
-                    styleClass="primary-button" />
-            <Button text="Create account"
-                    onAction="#goToRegister"
-                    prefHeight="42.0"
-                    prefWidth="220.0"
-                    styleClass="secondary-button" />
-         </children>
-      </VBox>
-   </children>
-</AnchorPane>
+   <HBox fx:id="windowBar" styleClass="window-bar">
+      <Label text="FinTrack" styleClass="window-title"/>
+
+      <Pane HBox.hgrow="ALWAYS"/>
+
+      <Button text="—" onAction="#handleMinimize" styleClass="window-button"/>
+      <Button text="□" onAction="#handleMaximize" styleClass="window-button"/>
+      <Button text="✕" onAction="#handleClose" styleClass="close-button"/>
+   </HBox>
+   <AnchorPane prefHeight="441.0"
+               prefWidth="500.0"
+               styleClass="auth-root"
+               stylesheets="@../css/style.css"
+               xmlns="http://javafx.com/javafx/26"
+               xmlns:fx="http://javafx.com/fxml/1"
+               >
+
+      <children>
+
+         <VBox alignment="CENTER"
+               layoutX="75.0"
+               layoutY="45.0"
+               prefWidth="350.0"
+               spacing="16"
+               styleClass="auth-card">
+            <children>
+               <Label text="FinTrack"
+                      styleClass="auth-title" />
+               <VBox spacing="6">
+                  <children>
+                     <Label text="Email or Username"
+                            styleClass="field-label" />
+                     <TextField fx:id="identifierField"
+                                prefHeight="42.0"
+                                promptText="Email"
+                                styleClass="input-field" />
+                  </children>
+               </VBox>
+               <VBox spacing="6">
+                  <children>
+                     <Label text="Password"
+                            styleClass="field-label" />
+                     <PasswordField fx:id="passwordField"
+                                    prefHeight="42.0"
+                                    promptText="Password"
+                                    styleClass="input-field" />
+                  </children>
+               </VBox>
+               <Label fx:id="messageLabel"
+                      prefHeight="20.0"
+                      styleClass="message-label" />
+               <Button text="Login"
+                       onAction="#handleLogin"
+                       prefHeight="42.0"
+                       prefWidth="220.0"
+                       styleClass="primary-button"
+                       defaultButton="true"
+               />
+               <Button text="Create account"
+                       onAction="#goToRegister"
+                       prefHeight="42.0"
+                       prefWidth="220.0"
+                       styleClass="secondary-button"/>
+            </children>
+         </VBox>
+      </children>
+   </AnchorPane>
+</VBox>

@@ -18,6 +18,7 @@ public class SceneManager {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlPath));
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
+            stage.centerOnScreen();
         } catch(IOException e) {
             e.printStackTrace();
         }

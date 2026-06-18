@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import nl.dami.fintrack.database.DatabaseManager;
 import nl.dami.fintrack.util.SceneManager;
 
@@ -16,6 +17,8 @@ public class MainApplication extends Application{
         FXMLLoader fxmlLoader = new FXMLLoader(
                 MainApplication.class.getResource("/fxml/login-view.fxml")
         );
+
+        stage.initStyle(StageStyle.UNDECORATED);
 
         Scene scene = new Scene(fxmlLoader.load());
 

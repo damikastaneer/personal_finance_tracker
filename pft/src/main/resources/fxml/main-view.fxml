@@ -13,92 +13,120 @@
 <?import javafx.scene.chart.NumberAxis?>
 
 <?import javafx.scene.layout.Pane?>
-<BorderPane prefHeight="800.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.dami.fintrack.controller.MainController">
 
-   <left>
-      <VBox prefWidth="180.0" styleClass="sidebar">
-         <Label styleClass="app-title" text="FinTrack" />
-         <Button styleClass="sidebar-button" text="Overview" />
-         <Button styleClass="sidebar-button" text="Transactions" />
-         <Button styleClass="sidebar-button" text="Budgets" />
-         <Button styleClass="sidebar-button" text="Reports" />
-         <Button styleClass="sidebar-button" text="Settings" />
 
-         <Pane VBox.vgrow="ALWAYS" />
+<VBox stylesheets="@../css/style.css"
+      xmlns="http://javafx.com/javafx/26"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="nl.dami.fintrack.controller.MainController">
+   <HBox fx:id="windowBar" styleClass="window-bar">
 
-         <Button onAction="#handleLogout" styleClass="sidebar-button" text="Log out"/>
-      </VBox>
-   </left>
+      <Label text="FinTrack"
+             styleClass="window-title"/>
 
-   <center>
-      <VBox spacing="24" styleClass="main-content">
+      <Pane HBox.hgrow="ALWAYS"/>
 
-         <Label styleClass="page-title" text="Dashboard" />
+      <Button fx:id="minimizeButton"
+              text="—"
+              onAction="#handleMinimize"
+              styleClass="window-button"/>
+      <Button text="□"
+              onAction="#handleMaximize"
+              styleClass="window-button"/>
 
-         <HBox spacing="24">
+      <Button fx:id="closeButton"
+              text="✕"
+              onAction="#handleClose"
+              styleClass="close-button"/>
 
-            <VBox spacing="24" prefWidth="850.0">
+   </HBox>
+   <BorderPane prefHeight="800.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" >
 
-               <VBox styleClass="card" prefHeight="320.0">
-                  <Label styleClass="title-label" text="Financial Overview" />
+      <left>
+         <VBox prefWidth="180.0" styleClass="sidebar">
+            <Label styleClass="app-title" text="FinTrack" />
+            <Button styleClass="sidebar-button" text="Overview" />
+            <Button styleClass="sidebar-button" text="Transactions" />
+            <Button styleClass="sidebar-button" text="Budgets" />
+            <Button styleClass="sidebar-button" text="Reports" />
+            <Button styleClass="sidebar-button" text="Settings" />
 
-                  <LineChart fx:id="financialChart"
-                             prefHeight="320.0"
-                             animated="false"
-                             legendVisible="true">
+            <Pane VBox.vgrow="ALWAYS" />
 
-                     <xAxis>
-                        <CategoryAxis label="Month" />
-                     </xAxis>
+            <Button onAction="#handleLogout" styleClass="sidebar-button" text="Log out"/>
+         </VBox>
+      </left>
 
-                     <yAxis>
-                        <NumberAxis label="Amount (€)" />
-                     </yAxis>
-                  </LineChart>
+      <center>
+         <VBox spacing="24" styleClass="main-content">
+
+            <Label styleClass="page-title" text="Dashboard" />
+
+            <HBox spacing="24">
+
+               <VBox spacing="24" prefWidth="850.0">
+
+                  <VBox styleClass="card" prefHeight="320.0">
+                     <Label styleClass="title-label" text="Financial Overview" />
+
+                     <LineChart fx:id="financialChart"
+                                prefHeight="320.0"
+                                animated="false"
+                                legendVisible="true">
+
+                        <xAxis>
+                           <CategoryAxis label="Month" />
+                        </xAxis>
+
+                        <yAxis>
+                           <NumberAxis label="Amount (€)" />
+                        </yAxis>
+                     </LineChart>
+                  </VBox>
+
+                  <VBox styleClass="card" prefHeight="380.0">
+                     <Label styleClass="title-label" text="Recent Transactions" />
+
+                     <TableView fx:id="transactionTable" prefHeight="270.0">
+                        <columns>
+                           <TableColumn fx:id="dateColumn" prefWidth="130.0" text="Date" />
+                           <TableColumn fx:id="typeColumn" prefWidth="110.0" text="Type" />
+                           <TableColumn fx:id="categoryColumn" prefWidth="140.0" text="Category" />
+                           <TableColumn fx:id="amountColumn" prefWidth="120.0" text="Amount" />
+                           <TableColumn fx:id="descriptionColumn" prefWidth="250.0" text="Description" />
+                        </columns>
+                     </TableView>
+                  </VBox>
+
                </VBox>
 
-               <VBox styleClass="card" prefHeight="380.0">
-                  <Label styleClass="title-label" text="Recent Transactions" />
+               <VBox spacing="24" prefWidth="280.0">
 
-                  <TableView fx:id="transactionTable" prefHeight="270.0">
-                     <columns>
-                        <TableColumn fx:id="dateColumn" prefWidth="130.0" text="Date" />
-                        <TableColumn fx:id="typeColumn" prefWidth="110.0" text="Type" />
-                        <TableColumn fx:id="categoryColumn" prefWidth="140.0" text="Category" />
-                        <TableColumn fx:id="amountColumn" prefWidth="120.0" text="Amount" />
-                        <TableColumn fx:id="descriptionColumn" prefWidth="250.0" text="Description" />
-                     </columns>
-                  </TableView>
+                  <VBox styleClass="card" prefHeight="160.0">
+                     <Label styleClass="title-label" text="Current Balance" />
+                     <Label fx:id="balanceLabel" styleClass="balance-label" text="€0.00" />
+                  </VBox>
+
+                  <VBox styleClass="card" prefHeight="160.0">
+                     <Label styleClass="title-label" text="Income" />
+                     <Label fx:id="incomeLabel" styleClass="balance-label" text="€0.00" />
+                  </VBox>
+
+                  <VBox styleClass="card" prefHeight="160.0">
+                     <Label styleClass="title-label" text="Expenses" />
+                     <Label fx:id="expensesLabel" styleClass="balance-label" text="€0.00" />
+                  </VBox>
+
+                  <Button onAction="#goToAddTransaction"
+                          styleClass="primary-button"
+                          text="Add Transaction" />
+
                </VBox>
 
-            </VBox>
+            </HBox>
 
-            <VBox spacing="24" prefWidth="280.0">
+         </VBox>
+      </center>
 
-               <VBox styleClass="card" prefHeight="160.0">
-                  <Label styleClass="title-label" text="Current Balance" />
-                  <Label fx:id="balanceLabel" styleClass="balance-label" text="€0.00" />
-               </VBox>
-
-               <VBox styleClass="card" prefHeight="160.0">
-                  <Label styleClass="title-label" text="Income" />
-                  <Label fx:id="incomeLabel" styleClass="balance-label" text="€0.00" />
-               </VBox>
-
-               <VBox styleClass="card" prefHeight="160.0">
-                  <Label styleClass="title-label" text="Expenses" />
-                  <Label fx:id="expensesLabel" styleClass="balance-label" text="€0.00" />
-               </VBox>
-
-               <Button onAction="#goToAddTransaction"
-                       styleClass="primary-button"
-                       text="Add Transaction" />
-
-            </VBox>
-
-         </HBox>
-
-      </VBox>
-   </center>
-
-</BorderPane>
+   </BorderPane>
+</VBox>
